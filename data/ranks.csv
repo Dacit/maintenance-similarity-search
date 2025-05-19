@@ -1,0 +1,51 @@
+name,rank
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",3
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",2
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",58
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",3
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",35
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",75
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",2
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",23
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",1
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",4
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",9
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",25
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",2
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",8
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",33
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",1
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",10
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",1
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",1
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",1
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",31
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",58
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",2
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",2
+"mk_config l1 (ml, IDF, (k {typ=1,cls=28,thm=1,cnst=37}), p1, d1)",4
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",58
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",3
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",26
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",7
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",15
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",32
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",21
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",28
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",1
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",2
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",4
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",11
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",2
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",4
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",28
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",1
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",6
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",4
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",7
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",3
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",22
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",21
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",4
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",4
+"mk_config (lr {lmt=10,dp=0.85}) (ml, IDF, (k {typ=1,cls=1,thm=1,cnst=2}), p2, dw)",1

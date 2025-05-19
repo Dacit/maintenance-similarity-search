@@ -1,0 +1,4 @@
+# -*- shell-script -*- :mode=shellscript:
+
+CLONE_DETECTION_HOME="$COMPONENT"
+CLONE_DETECTION_JAR="$CLONE_DETECTION_HOME/lib/isabelle_clone_detection.jar"

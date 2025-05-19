@@ -1,0 +1,1524 @@
+2 clones (score: 0.862): {
+  HOL.Boolean_Algebras[5317..5445]:
+    lemma conj_cancel_left [simp]: "❙- x ❙⊓ x = ❙0"
+      by (subst conj.commute) (rule conj_cancel_right)
+  
+  HOL.GCD[2498..2634]:
+    lemma top_right_normalize [simp]:
+      "a ❙* ❙⊤ = normalize a"
+      using top_left_normalize [of a] by (simp add: ac_simps)
+}
+
+
+2 clones (score: 0.864): {
+  HOL.Lattices[494..598]:
+    lemma left_idem [simp]: "a ❙* (a ❙* b) = a ❙* b"
+      by (simp add: assoc [symmetric])
+  
+  HOL.GCD[2225..2348]:
+    lemma right_idem [simp]:
+      "(a ❙* b) ❙* b = a ❙* b"
+      using left_idem [of b a] by (simp add: ac_simps)
+}
+
+
+2 clones (score: 0.864): {
+  HOL.Lifting[6091..6346]:
+    lemma apply_rsp'':
+      assumes "Quotient R Abs Rep T"
+      and "(R ===> S) f f"
+      shows "S (f (Rep x)) (f (Rep x))"
+    proof -
+      from assms(1) have "R (Rep x) (Rep x)" by (rule Quotient_rep_reflp)
+      then show ?thesis using assms(2) by (auto intro: apply_rsp')
+    qed
+  
+  HOL.Quotient[6232..6489]:
+    lemma apply_rspQ3'':
+      assumes "Quotient3 R Abs Rep"
+      and "(R ===> S) f f"
+      shows "S (f (Rep x)) (f (Rep x))"
+    proof -
+      from assms(1) have "R (Rep x) (Rep x)" by (rule Quotient3_rep_reflp)
+      then show ?thesis using assms(2) by (auto intro: apply_rsp')
+    qed
+}
+
+
+2 clones (score: 0.866): {
+  HOL.Groups[4216..4309]:
+    lemma inverse_neutral [simp]: "inverse ❙1 = ❙1"
+      by (rule inverse_unique) simp
+  
+  HOL.Boolean_Algebras[6168..6253]:
+    lemma compl_zero [simp]: "❙- ❙0 = ❙1"
+      by (fact dual.compl_one)
+}
+
+
+2 clones (score: 0.867): {
+  HOL.Groups[23425..23543]:
+    lemma add_pos_pos: "0 < a ⟹ 0 < b ⟹ 0 < a + b"
+      by (intro add_pos_nonneg less_imp_le)
+  
+  HOL.Rings[67884..68017]:
+    lemma mult_neg_neg: "a < 0 ⟹ b < 0 ⟹ 0 < a * b"
+      using mult_strict_right_mono_neg [of a 0 b] by simp
+}
+
+
+2 clones (score: 0.867): {
+  HOL.Groups[23846..23964]:
+    lemma add_neg_neg: "a < 0 ⟹ b < 0 ⟹ a + b < 0"
+      by (intro add_neg_nonpos less_imp_le)
+  
+  HOL.Rings[67884..68017]:
+    lemma mult_neg_neg: "a < 0 ⟹ b < 0 ⟹ 0 < a * b"
+      using mult_strict_right_mono_neg [of a 0 b] by simp
+}
+
+
+2 clones (score: 0.867): {
+  HOL.Boolean_Algebras[11268..11403]:
+    lemma xor_self [simp]: "x ❙⊖ x = ❙0"
+      by (simp only: xor_def conj_cancel_right conj_cancel_left disj_zero_right)
+  
+  HOL.GCD[2636..2781]:
+    lemma bottom_right_bottom [simp]:
+      "a ❙* ❙⊥ = ❙⊥"
+      using bottom_left_bottom [of a] by (simp add: ac_simps)
+}
+
+
+2 clones (score: 0.868): {
+  HOL.Fun[850..919]:
+    definition id :: "'a ⇒ 'a"
+      where "id = (λx. x)"
+  
+  HOL.Metis[1018..1093]:
+    definition lambda :: "'a ⇒ 'a" where
+    "lambda = (λx. x)"
+}
+
+
+2 clones (score: 0.868): {
+  HOL.Fun[850..919]:
+    definition id :: "'a ⇒ 'a"
+      where "id = (λx. x)"
+  
+  HOL.Metis[479..554]:
+    definition select :: "'a ⇒ 'a" where
+    "select = (λx. x)"
+}
+
+
+2 clones (score: 0.868): {
+  HOL.Fun[850..919]:
+    definition id :: "'a ⇒ 'a"
+      where "id = (λx. x)"
+  
+  HOL.Meson[6930..7005]:
+    definition skolem :: "'a ⇒ 'a" where
+    "skolem = (λx. x)"
+}
+
+
+2 clones (score: 0.868): {
+  HOL.Meson[6930..7005]:
+    definition skolem :: "'a ⇒ 'a" where
+    "skolem = (λx. x)"
+  
+  HOL.Metis[1018..1093]:
+    definition lambda :: "'a ⇒ 'a" where
+    "lambda = (λx. x)"
+}
+
+
+2 clones (score: 0.868): {
+  HOL.Meson[6930..7005]:
+    definition skolem :: "'a ⇒ 'a" where
+    "skolem = (λx. x)"
+  
+  HOL.Metis[479..554]:
+    definition select :: "'a ⇒ 'a" where
+    "select = (λx. x)"
+}
+
+
+2 clones (score: 0.868): {
+  HOL.Relation[36343..36516]:
+    lemma single_valuedp_iff_Uniq:
+      "single_valuedp r ⟷ (∀x. ∃⇩≤⇩1y. r x y)"
+      unfolding Uniq_def single_valuedp_def by auto
+  
+  HOL.Transfer[4633..4791]:
+    lemma left_unique_iff: "left_unique R ⟷ (∀z. ∃⇩≤⇩1x. R x z)"
+      unfolding Uniq_def left_unique_def by force
+}
+
+
+2 clones (score: 0.869): {
+  HOL.Set[23883..23976]:
+    lemma eq_mem_trans: "a = b ⟹ b ∈ A ⟹ a ∈ A"
+      by simp
+  
+  HOL.BNF_Composition[371..463]:
+    lemma ssubst_mem: "⟦t = s; s ∈ X⟧ ⟹ t ∈ X"
+      by simp
+}
+
+
+2 clones (score: 0.870): {
+  HOL.BNF_Def[1277..1397]:
+    lemma rel_funD:
+      assumes "rel_fun A B f g" and "A x y"
+      shows "B (f x) (g y)"
+      using assms by (simp add: rel_fun_def)
+  
+  HOL.Transfer[596..718]:
+    lemma rel_funE:
+      assumes "rel_fun A B f g" and "A x y"
+      obtains "B (f x) (g y)"
+      using assms by (simp add: rel_fun_def)
+}
+
+
+2 clones (score: 0.870): {
+  HOL.Relation[17802..18022]:
+    definition symp_on :: "'a set ⇒ ('a ⇒ 'a ⇒ bool) ⇒ bool" where
+      "symp_on A R ⟷ (∀x ∈ A. ∀y ∈ A. R x y ⟶ R y x)"
+  
+  HOL.Complete_Partial_Order[484..690]:
+    definition chain :: "('a ⇒ 'a ⇒ bool) ⇒ 'a set ⇒ bool"
+      where "chain ord S ⟷ (∀x∈S. ∀y∈S. ord x y ∨ ord y x)"
+}
+
+
+2 clones (score: 0.870): {
+  HOL.Complete_Lattices[5133..5386]:
+    lemma dual_complete_lattice: "class.complete_lattice Sup Inf sup (≥) (>) inf ⊤ ⊥"
+      by (auto intro!: class.complete_lattice.intro dual_lattice)
+        (unfold_locales, (fact Inf_empty Sup_empty Sup_upper Sup_least Inf_lower Inf_greatest)+)
+  
+  HOL.Hilbert_Choice[39337..39601]:
+    lemma dual_complete_distrib_lattice:
+      "class.complete_distrib_lattice Sup Inf sup (≥) (>) inf ⊤ ⊥"
+      by (simp add: class.complete_distrib_lattice.intro [OF dual_complete_lattice] 
+                    class.complete_distrib_lattice_axioms_def Sup_Inf)
+}
+
+
+2 clones (score: 0.870): {
+  HOL.Groups[22184..22317]:
+    lemma add_nonpos_nonpos: "a ≤ 0 ⟹ b ≤ 0 ⟹ a + b ≤ 0"
+      using add_mono[of a 0 b 0] by simp
+  
+  HOL.Rings[65810..65954]:
+    lemma mult_nonpos_nonpos: "a ≤ 0 ⟹ b ≤ 0 ⟹ 0 ≤ a * b"
+      using mult_right_mono_neg [of a 0 b] by simp
+}
+
+
+2 clones (score: 0.871): {
+  HOL.Fun[34631..35018]:
+    lemma the_inv_into_comp:
+      "inj_on f (g ` A) ⟹ inj_on g A ⟹ x ∈ f ` g ` A ⟹
+        the_inv_into A (f ∘ g) x = (the_inv_into A g ∘ the_inv_into (g ` A) f) x"
+      apply (rule the_inv_into_f_eq)
+        apply (fast intro: comp_inj_on)
+       apply (simp add: f_the_inv_into_f the_inv_into_into)
+      apply (simp add: the_inv_into_into)
+      done
+  
+  HOL.Hilbert_Choice[11409..11688]:
+    lemma inv_into_comp:
+      "inj_on f (g ` A) ⟹ inj_on g A ⟹ x ∈ f ` g ` A ⟹
+        inv_into A (f ∘ g) x = (inv_into A g ∘ inv_into (g ` A) f) x"
+      by (auto simp: f_inv_into_f inv_into_into intro: inv_into_f_eq comp_inj_on)
+}
+
+
+2 clones (score: 0.871): {
+  HOL.HOL[56381..56517]:
+    lemma induct_forall_eq: "(⋀x. P x) ≡ Trueprop (induct_forall (λx. P x))"
+      by (unfold atomize_all induct_forall_def)
+  
+  HOL.Transfer[1996..2139]:
+    lemma transfer_forall_eq: "(⋀x. P x) ≡ Trueprop (transfer_forall (λx. P x))"
+      unfolding atomize_all transfer_forall_def ..
+}
+
+
+2 clones (score: 0.871): {
+  HOL.Finite_Set[55947..56002]:
+    lemma empty [simp]: "F {} = z"
+      by (simp add: eq_fold)
+  
+  HOL.GCD[3418..3488]:
+    lemma empty [simp]:
+      "F {} = ❙⊤"
+      by (simp add: eq_fold)
+}
+
+
+2 clones (score: 0.872): {
+  HOL.Relation[36343..36516]:
+    lemma single_valuedp_iff_Uniq:
+      "single_valuedp r ⟷ (∀x. ∃⇩≤⇩1y. r x y)"
+      unfolding Uniq_def single_valuedp_def by auto
+  
+  HOL.Transfer[5792..5953]:
+    lemma right_unique_iff: "right_unique R ⟷ (∀z. ∃⇩≤⇩1x. R z x)"
+      unfolding Uniq_def right_unique_def by force
+}
+
+
+2 clones (score: 0.872): {
+  HOL.HOL[71203..71335]:
+    lemma conj_left_cong: "P ⟷ Q ⟹ P ∧ R ⟷ Q ∧ R"
+      by (fact arg_cong)
+  
+  HOL.Record[17704..17803]:
+    lemma refl_conj_eq: "Q = R ⟹ P ∧ Q ⟷ P ∧ R"
+      by simp
+}
+
+
+2 clones (score: 0.873): {
+  HOL.HOL[57635..58074]:
+    lemma induct_conj_curry: "(induct_conj A B ⟹ PROP C) ≡ (A ⟹ B ⟹ PROP C)"
+    proof
+      assume r: "induct_conj A B ⟹ PROP C"
+      assume ab: A B
+      show "PROP C" by (rule r) (simp add: induct_conj_def ab)
+    next
+      assume r: "A ⟹ B ⟹ PROP C"
+      assume ab: "induct_conj A B"
+      show "PROP C" by (rule r) (simp_all add: ab [unfolded induct_conj_def])
+    qed
+  
+  HOL.BNF_Fixpoint_Base[463..610]:
+    lemma conj_imp_eq_imp_imp: "(P ∧ Q ⟹ PROP R) ≡ (P ⟹ Q ⟹ PROP R)"
+      by standard simp_all
+}
+
+
+2 clones (score: 0.873): {
+  HOL.Groups_Big[1116..1449]:
+    lemma remove:
+      assumes "finite A" and "x ∈ A"
+      shows "F g A = g x ❙* F g (A - {x})"
+    proof -
+      from ‹x ∈ A› obtain B where B: "A = insert x B" and "x ∉ B"
+        by (auto dest: mk_disjoint_insert)
+      moreover from ‹finite A› B have "finite B" by simp
+      ultimately show ?thesis by simp
+    qed
+  
+  HOL.Lattices_Big[7173..7409]:
+    lemma remove:
+      assumes "finite A" and "x ∈ A"
+      shows "F A = x ❙* F (A - {x})"
+    proof -
+      from assms obtain B where "A = insert x B" and "x ∉ B" by (blast dest: mk_disjoint_insert)
+      with assms show ?thesis by simp
+    qed
+}
+
+
+2 clones (score: 0.874): {
+  HOL.Finite_Set[55857..55945]:
+    definition F :: "'a set ⇒ 'b"
+      where eq_fold: "F A = Finite_Set.fold f z A"
+  
+  HOL.Lattices_Big[6351..6447]:
+    definition F :: "'a set ⇒ 'a"
+    where
+      eq_fold: "F A = Finite_Set.fold f ❙1 A"
+}
+
+
+2 clones (score: 0.874): {
+  HOL.Groups[23425..23543]:
+    lemma add_pos_pos: "0 < a ⟹ 0 < b ⟹ 0 < a + b"
+      by (intro add_pos_nonneg less_imp_le)
+  
+  HOL.Rings[61278..61408]:
+    lemma mult_pos_neg2: "0 < a ⟹ b < 0 ⟹ b * a < 0"
+      by (drule mult_strict_right_mono [of b 0]) auto
+}
+
+
+2 clones (score: 0.874): {
+  HOL.Groups[23425..23543]:
+    lemma add_pos_pos: "0 < a ⟹ 0 < b ⟹ 0 < a + b"
+      by (intro add_pos_nonneg less_imp_le)
+  
+  HOL.Rings[61083..61212]:
+    lemma mult_neg_pos: "a < 0 ⟹ 0 < b ⟹ a * b < 0"
+      using mult_strict_right_mono [of a 0 b] by simp
+}
+
+
+2 clones (score: 0.874): {
+  HOL.Groups[23425..23543]:
+    lemma add_pos_pos: "0 < a ⟹ 0 < b ⟹ 0 < a + b"
+      by (intro add_pos_nonneg less_imp_le)
+  
+  HOL.Rings[60953..61081]:
+    lemma mult_pos_neg: "0 < a ⟹ b < 0 ⟹ a * b < 0"
+      using mult_strict_left_mono [of b 0 a] by simp
+}
+
+
+2 clones (score: 0.874): {
+  HOL.Groups[23846..23964]:
+    lemma add_neg_neg: "a < 0 ⟹ b < 0 ⟹ a + b < 0"
+      by (intro add_neg_nonpos less_imp_le)
+  
+  HOL.Rings[61278..61408]:
+    lemma mult_pos_neg2: "0 < a ⟹ b < 0 ⟹ b * a < 0"
+      by (drule mult_strict_right_mono [of b 0]) auto
+}
+
+
+2 clones (score: 0.874): {
+  HOL.Groups[23846..23964]:
+    lemma add_neg_neg: "a < 0 ⟹ b < 0 ⟹ a + b < 0"
+      by (intro add_neg_nonpos less_imp_le)
+  
+  HOL.Rings[61083..61212]:
+    lemma mult_neg_pos: "a < 0 ⟹ 0 < b ⟹ a * b < 0"
+      using mult_strict_right_mono [of a 0 b] by simp
+}
+
+
+2 clones (score: 0.874): {
+  HOL.Groups[23846..23964]:
+    lemma add_neg_neg: "a < 0 ⟹ b < 0 ⟹ a + b < 0"
+      by (intro add_neg_nonpos less_imp_le)
+  
+  HOL.Rings[60953..61081]:
+    lemma mult_pos_neg: "0 < a ⟹ b < 0 ⟹ a * b < 0"
+      using mult_strict_left_mono [of b 0 a] by simp
+}
+
+
+2 clones (score: 0.875): {
+  HOL.Order_Relation[2846..2896]:
+    abbreviation "Refl r ≡ refl_on (Field r) r"
+  
+  HOL.BNF_Cardinal_Order_Relation[2140..2202]:
+    abbreviation "Card_order r ≡ card_order_on (Field r) r"
+}
+
+
+2 clones (score: 0.875): {
+  HOL.Order_Relation[2898..2956]:
+    abbreviation "Preorder r ≡ preorder_on (Field r) r"
+  
+  HOL.BNF_Cardinal_Order_Relation[2140..2202]:
+    abbreviation "Card_order r ≡ card_order_on (Field r) r"
+}
+
+
+2 clones (score: 0.875): {
+  HOL.Order_Relation[2958..3026]:
+    abbreviation "Partial_order r ≡ partial_order_on (Field r) r"
+  
+  HOL.BNF_Cardinal_Order_Relation[2140..2202]:
+    abbreviation "Card_order r ≡ card_order_on (Field r) r"
+}
+
+
+2 clones (score: 0.875): {
+  HOL.Order_Relation[3028..3080]:
+    abbreviation "Total r ≡ total_on (Field r) r"
+  
+  HOL.BNF_Cardinal_Order_Relation[2140..2202]:
+    abbreviation "Card_order r ≡ card_order_on (Field r) r"
+}
+
+
+2 clones (score: 0.875): {
+  HOL.Order_Relation[3082..3148]:
+    abbreviation "Linear_order r ≡ linear_order_on (Field r) r"
+  
+  HOL.BNF_Cardinal_Order_Relation[2140..2202]:
+    abbreviation "Card_order r ≡ card_order_on (Field r) r"
+}
+
+
+2 clones (score: 0.875): {
+  HOL.Order_Relation[3150..3212]:
+    abbreviation "Well_order r ≡ well_order_on (Field r) r"
+  
+  HOL.BNF_Cardinal_Order_Relation[2140..2202]:
+    abbreviation "Card_order r ≡ card_order_on (Field r) r"
+}
+
+
+2 clones (score: 0.876): {
+  HOL.Boolean_Algebras[10981..11139]:
+    lemma xor_one_right [simp]: "x ❙⊖ ❙1 = ❙- x"
+      by (simp only: xor_def compl_one conj_zero_right conj_one_right disj.left_neutral)
+  
+  HOL.GCD[2498..2634]:
+    lemma top_right_normalize [simp]:
+      "a ❙* ❙⊤ = normalize a"
+      using top_left_normalize [of a] by (simp add: ac_simps)
+}
+
+
+2 clones (score: 0.876): {
+  HOL.Boolean_Algebras[11141..11266]:
+    lemma xor_one_left [simp]: "❙1 ❙⊖ x = ❙- x"
+      using xor_one_right [of x] by (simp add: ac_simps)
+  
+  HOL.GCD[2498..2634]:
+    lemma top_right_normalize [simp]:
+      "a ❙* ❙⊤ = normalize a"
+      using top_left_normalize [of a] by (simp add: ac_simps)
+}
+
+
+2 clones (score: 0.878): {
+  HOL.Groups[12940..13004]:
+    lemma minus_minus: "- (- a) = a"
+      by (fact add.inverse_inverse)
+  
+  HOL.Boolean_Algebras[14245..14319]:
+    lemma double_compl: "- (- x) = x"
+      by (fact boolean_algebra.double_compl)
+}
+
+
+2 clones (score: 0.878): {
+  HOL.Groups[22184..22317]:
+    lemma add_nonpos_nonpos: "a ≤ 0 ⟹ b ≤ 0 ⟹ a + b ≤ 0"
+      using add_mono[of a 0 b 0] by simp
+  
+  HOL.Rings[58172..58313]:
+    lemma mult_nonneg_nonpos2: "0 ≤ a ⟹ b ≤ 0 ⟹ b * a ≤ 0"
+      by (drule mult_right_mono [of b 0]) auto
+}
+
+
+2 clones (score: 0.878): {
+  HOL.Groups[22184..22317]:
+    lemma add_nonpos_nonpos: "a ≤ 0 ⟹ b ≤ 0 ⟹ a + b ≤ 0"
+      using add_mono[of a 0 b 0] by simp
+  
+  HOL.Rings[57960..58100]:
+    lemma mult_nonpos_nonneg: "a ≤ 0 ⟹ 0 ≤ b ⟹ a * b ≤ 0"
+      using mult_right_mono [of a 0 b] by simp
+}
+
+
+2 clones (score: 0.878): {
+  HOL.Groups[22184..22317]:
+    lemma add_nonpos_nonpos: "a ≤ 0 ⟹ b ≤ 0 ⟹ a + b ≤ 0"
+      using add_mono[of a 0 b 0] by simp
+  
+  HOL.Rings[57819..57958]:
+    lemma mult_nonneg_nonpos: "0 ≤ a ⟹ b ≤ 0 ⟹ a * b ≤ 0"
+      using mult_left_mono [of b 0 a] by simp
+}
+
+
+2 clones (score: 0.880): {
+  HOL.HOL[54153..54340]:
+    lemma if_cong:
+      assumes "b = c"
+        and "c ⟹ x = u"
+        and "¬ c ⟹ y = v"
+      shows "(if b then x else y) = (if c then u else v)"
+      using assms by simp
+  
+  HOL.SMT[7630..7923]:
+    lemma verit_if_cong:
+      assumes ‹b ≡ c›
+        and ‹c ⟹ x ≡ u›
+        and ‹¬ c ⟹ y ≡ v›
+      shows ‹(if b then x else y) ≡ (if c then u else v)›
+      using assms if_cong[of b c x u] by auto
+}
+
+
+2 clones (score: 0.881): {
+  HOL.Set[25883..25981]:
+    lemma equals0I: "(⋀y. y ∈ A ⟹ False) ⟹ A = {}"
+      by blast
+  
+  HOL.BNF_Least_Fixpoint[497..610]:
+    lemma subset_emptyI: "(⋀x. x ∈ A ⟹ False) ⟹ A ⊆ {}"
+      by blast
+}
+
+
+2 clones (score: 0.882): {
+  HOL.Groups[22042..22182]:
+    lemma add_nonneg_nonneg [simp]: "0 ≤ a ⟹ 0 ≤ b ⟹ 0 ≤ a + b"
+      using add_mono[of 0 a 0 b] by simp
+  
+  HOL.Rings[57671..57817]:
+    lemma mult_nonneg_nonneg [simp]: "0 ≤ a ⟹ 0 ≤ b ⟹ 0 ≤ a * b"
+      using mult_left_mono [of 0 b a] by simp
+}
+
+
+2 clones (score: 0.883): {
+  HOL.Boolean_Algebras[4942..5070]:
+    lemma conj_zero_right [simp]: "x ❙⊓ ❙0 = ❙0"
+      using conj.left_idem conj_cancel_right by fastforce
+  
+  HOL.GCD[2636..2781]:
+    lemma bottom_right_bottom [simp]:
+      "a ❙* ❙⊥ = ❙⊥"
+      using bottom_left_bottom [of a] by (simp add: ac_simps)
+}
+
+
+2 clones (score: 0.883): {
+  HOL.Boolean_Algebras[5193..5315]:
+    lemma conj_zero_left [simp]: "❙0 ❙⊓ x = ❙0"
+      by (subst conj.commute) (rule conj_zero_right)
+  
+  HOL.GCD[2636..2781]:
+    lemma bottom_right_bottom [simp]:
+      "a ❙* ❙⊥ = ❙⊥"
+      using bottom_left_bottom [of a] by (simp add: ac_simps)
+}
+
+
+2 clones (score: 0.885): {
+  HOL.Nat[61647..61796]:
+    lemma mono_iff_le_Suc: "mono f ⟷ (∀n. f n ≤ f (Suc n))"
+      unfolding mono_def by (auto intro: lift_Suc_mono_le [of f])
+  
+  HOL.Topological_Spaces[52286..52423]:
+    lemma incseq_Suc_iff: "incseq f ⟷ (∀n. f n ≤ f (Suc n))"
+      by (auto intro: incseq_SucI dest: incseq_SucD)
+}
+
+
+2 clones (score: 0.885): {
+  HOL.Nat[61798..61963]:
+    lemma antimono_iff_le_Suc: "antimono f ⟷ (∀n. f (Suc n) ≤ f n)"
+      unfolding antimono_def by (auto intro: lift_Suc_antimono_le [of f])
+  
+  HOL.Topological_Spaces[52857..52994]:
+    lemma decseq_Suc_iff: "decseq f ⟷ (∀n. f (Suc n) ≤ f n)"
+      by (auto intro: decseq_SucI dest: decseq_SucD)
+}
+
+
+2 clones (score: 0.886): {
+  HOL.HOL[13666..13756]:
+    lemma arg_cong: "x = y ⟹ f x = f y"
+      by (iprover intro: refl elim: subst)
+  
+  HOL.Hilbert_Choice[32326..32399]:
+    lemma eqI: "f a = f b ⟹ a = b"
+      using inj by (rule injD)
+}
+
+
+2 clones (score: 0.886): {
+  HOL.Real_Vector_Spaces[101152..102653]:
+    lemma tendsto_at_topI_sequentially:
+      fixes f :: "real ⇒ 'b::first_countable_topology"
+      assumes *: "⋀X. filterlim X at_top sequentially ⟹ (λn. f (X n)) ⇢ y"
+      shows "(f ⤏ y) at_top"
+    proof -
+      obtain A where A: "decseq A" "open (A n)" "y ∈ A n" "nhds y = (INF n. principal (A n))" for n
+        by (rule nhds_countable[of y]) (rule that)
+    
+      have "∀m. ∃k. ∀x≥k. f x ∈ A m"
+      proof (rule ccontr)
+        assume "¬ (∀m. ∃k. ∀x≥k. f x ∈ A m)"
+        then obtain m where "⋀k. ∃x≥k. f x ∉ A m"
+          by auto
+        then have "∃X. ∀n. (f (X n) ∉ A m) ∧ max n (X n) + 1 ≤ X (Suc n)"
+          by (intro dependent_nat_choice) (auto simp del: max.bounded_iff)
+        then obtain X where X: "⋀n. f (X n) ∉ A m" "⋀n. max n (X n) + 1 ≤ X (Suc n)"
+          by auto
+        have "1 ≤ n ⟹ real n ≤ X n" for n
+          using X[of "n - 1"] by auto
+        then have "filterlim X at_top sequentially"
+          by (force intro!: filterlim_at_top_mono[OF filterlim_real_sequentially]
+              simp: eventually_sequentially)
+        from topological_tendstoD[OF *[OF this] A(2, 3), of m] X(1) show False
+          by auto
+      qed
+      then obtain k where "k m ≤ x ⟹ f x ∈ A m" for m x
+        by metis
+      then show ?thesis
+        unfolding at_top_def A by (intro filterlim_base[where i=k]) auto
+    qed
+  
+  HOL.Limits[70088..70624]:
+    lemma tendsto_at_botI_sequentially:
+      fixes f :: "real ⇒ 'b::first_countable_topology"
+      assumes *: "⋀X. filterlim X at_bot sequentially ⟹ (λn. f (X n)) ⇢ y"
+      shows "(f ⤏ y) at_bot"
+      unfolding filterlim_at_bot_mirror
+    proof (rule tendsto_at_topI_sequentially)
+      fix X :: "nat ⇒ real" assume "filterlim X at_top sequentially"
+      thus "(λn. f (-X n)) ⇢ y" by (intro *) (auto simp: filterlim_uminus_at_top)
+    qed
+}
+
+
+2 clones (score: 0.888): {
+  HOL.Lifting[1580..1669]:
+    lemma Quotient_rep_reflp: "R (Rep a) (Rep a)"
+      using a unfolding Quotient_def
+      by blast
+  
+  HOL.Quotient[1628..1723]:
+    lemma Quotient3_rep_reflp:
+      "R (Rep a) (Rep a)"
+      using a
+      unfolding Quotient3_def
+      by blast
+}
+
+
+2 clones (score: 0.889): {
+  HOL.Real_Vector_Spaces[81854..82252]:
+    lemma metric_LIM_compose2:
+      fixes a :: "'a::metric_space"
+      assumes f: "f ─a→ b"
+        and g: "g ─b→ c"
+        and inj: "∃d>0. ∀x. x ≠ a ∧ dist x a < d ⟶ f x ≠ b"
+      shows "(λx. g (f x)) ─a→ c"
+      using inj by (intro tendsto_compose_eventually[OF g f]) (auto simp: eventually_at)
+  
+  HOL.Limits[126093..126473]:
+    lemma LIM_compose2:
+      fixes a :: "'a::real_normed_vector"
+      assumes f: "f ─a→ b"
+        and g: "g ─b→ c"
+        and inj: "∃d>0. ∀x. x ≠ a ∧ norm (x - a) < d ⟶ f x ≠ b"
+      shows "(λx. g (f x)) ─a→ c"
+      by (rule metric_LIM_compose2 [OF f g inj [folded dist_norm]])
+}
+
+
+2 clones (score: 0.889): {
+  HOL.Lifting[1986..2082]:
+    lemma Quotient_refl1: "R r s ⟹ R r r"
+      using a unfolding Quotient_def
+      by fast
+  
+  HOL.Quotient[2033..2133]:
+    lemma Quotient3_refl2:
+      "R r s ⟹ R s s"
+      using a unfolding Quotient3_def
+      by fast
+}
+
+
+2 clones (score: 0.889): {
+  HOL.Lifting[2084..2180]:
+    lemma Quotient_refl2: "R r s ⟹ R s s"
+      using a unfolding Quotient_def
+      by fast
+  
+  HOL.Quotient[1931..2031]:
+    lemma Quotient3_refl1:
+      "R r s ⟹ R r r"
+      using a unfolding Quotient3_def
+      by fast
+}
+
+
+2 clones (score: 0.889): {
+  HOL.Lifting[1494..1578]:
+    lemma Quotient_abs_rep: "Abs (Rep a) = a"
+      using a unfolding Quotient_def
+      by simp
+  
+  HOL.Quotient[1536..1626]:
+    lemma Quotient3_abs_rep:
+      "Abs (Rep a) = a"
+      using a
+      unfolding Quotient3_def
+      by simp
+}
+
+
+2 clones (score: 0.892): {
+  HOL.Complete_Lattices[20101..20284]:
+    lemma Sup_Inf_le: "Sup (Inf ` {f ` A | f . (∀ Y ∈ A . f Y ∈ Y)}) ≤ Inf (Sup ` A)"
+      by (rule SUP_least, clarify, rule INF_greatest, simp add: INF_lower2 Sup_upper)
+  
+  HOL.Hilbert_Choice[37014..39333]:
+    lemma Sup_Inf: "⨆ (Inf ` A) = ⨅ (Sup ` {f ` A |f. ∀B∈A. f B ∈ B})"
+    proof (rule order.antisym)
+      show "⨆ (Inf ` A) ≤ ⨅ (Sup ` {f ` A |f. ∀B∈A. f B ∈ B})"
+        using Inf_lower2 Sup_upper
+        by (fastforce simp add: intro: Sup_least INF_greatest)
+    next
+      show "⨅ (Sup ` {f ` A |f. ∀B∈A. f B ∈ B}) ≤ ⨆ (Inf ` A)"
+      proof (simp add:  Inf_Sup, rule SUP_least, simp, safe)
+        fix f
+        assume "∀Y. (∃f. Y = f ` A ∧ (∀Y∈A. f Y ∈ Y)) ⟶ f Y ∈ Y"
+        then have B: "⋀ F . (∀ Y ∈ A . F Y ∈ Y) ⟹ ∃ Z ∈ A . f (F ` A) = F Z"
+          by auto
+        show "⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ ⨆(Inf ` A)"
+        proof (cases "∃ Z ∈ A . ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ Inf Z")
+          case True
+          from this obtain Z where [simp]: "Z ∈ A" and A: "⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ Inf Z"
+            by blast
+          have B: "... ≤ ⨆(Inf ` A)"
+            by (simp add: SUP_upper)
+          from A and B show ?thesis
+            by simp
+        next
+          case False
+          then have X: "⋀ Z . Z ∈ A ⟹ ∃ x . x ∈ Z ∧ ¬ ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ x"
+            using Inf_greatest by blast
+          define F where "F = (λ Z . SOME x . x ∈ Z ∧ ¬ ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ x)"
+          have C: "⋀Y. Y ∈ A ⟹ F Y ∈ Y"
+            using X by (simp add: F_def, rule someI2_ex, auto)
+          have E: "⋀Y. Y ∈ A ⟹ ¬ ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ F Y"
+            using X by (simp add: F_def, rule someI2_ex, auto)
+          from C and B obtain  Z where D: "Z ∈ A " and Y: "f (F ` A) = F Z"
+            by blast
+          from E and D have W: "¬ ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ F Z"
+            by simp
+          have "⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ f (F ` A)"
+            using C by (blast intro: INF_lower)
+          with W Y show ?thesis
+            by simp
+        qed
+      qed
+    qed
+}
+
+
+2 clones (score: 0.894): {
+  HOL.BNF_Def[8686..8815]:
+    lemma comp_apply_eq: "f (g x) = h (k x) ⟹ (f ∘ g) x = (h ∘ k) x"
+      unfolding comp_apply by assumption
+  
+  HOL.Fun_Def[4830..4964]:
+    lemma comp_cong [fundef_cong]: "f (g x) = f' (g' x') ⟹ (f ∘ g) x = (f' ∘ g') x'"
+      by (simp only: o_apply)
+}
+
+
+2 clones (score: 0.894): {
+  HOL.Set[72391..72620]:
+    definition pairwise :: "('a ⇒ 'a ⇒ bool) ⇒ 'a set ⇒ bool"
+      where "pairwise R S ⟷ (∀x ∈ S. ∀y ∈ S. x ≠ y ⟶ R x y)"
+  
+  HOL.Relation[14613..14842]:
+    definition asymp_on :: "'a set ⇒ ('a ⇒ 'a ⇒ bool) ⇒ bool" where
+      "asymp_on A R ⟷ (∀x ∈ A. ∀y ∈ A. R x y ⟶ ¬ R y x)"
+}
+
+
+2 clones (score: 0.895): {
+  HOL.Lifting[5777..5969]:
+    lemma apply_rsp:
+      fixes f g::"'a ⇒ 'c"
+      assumes q: "Quotient R1 Abs1 Rep1 T1"
+      and     a: "(R1 ===> R2) f g" "R1 x y"
+      shows "R2 (f x) (g y)"
+      using a by (auto elim: rel_funE)
+  
+  HOL.Quotient[6038..6230]:
+    lemma apply_rspQ3:
+      fixes f g::"'a ⇒ 'c"
+      assumes q: "Quotient3 R1 Abs1 Rep1"
+      and     a: "(R1 ===> R2) f g" "R1 x y"
+      shows "R2 (f x) (g y)"
+      using a by (auto elim: rel_funE)
+}
+
+
+2 clones (score: 0.896): {
+  HOL.Lifting[1986..2082]:
+    lemma Quotient_refl1: "R r s ⟹ R r r"
+      using a unfolding Quotient_def
+      by fast
+  
+  HOL.Quotient[1931..2031]:
+    lemma Quotient3_refl1:
+      "R r s ⟹ R r r"
+      using a unfolding Quotient3_def
+      by fast
+}
+
+
+2 clones (score: 0.896): {
+  HOL.Lifting[2084..2180]:
+    lemma Quotient_refl2: "R r s ⟹ R s s"
+      using a unfolding Quotient_def
+      by fast
+  
+  HOL.Quotient[2033..2133]:
+    lemma Quotient3_refl2:
+      "R r s ⟹ R s s"
+      using a unfolding Quotient3_def
+      by fast
+}
+
+
+2 clones (score: 0.896): {
+  HOL.Finite_Set[55947..56002]:
+    lemma empty [simp]: "F {} = z"
+      by (simp add: eq_fold)
+  
+  HOL.Groups_Big[903..968]:
+    lemma empty [simp]: "F g {} = ❙1"
+      by (simp add: eq_fold)
+}
+
+
+2 clones (score: 0.903): {
+  HOL.Nat[9431..9542]:
+    lemma mult_is_0 [simp]: "m * n = 0 ⟷ m = 0 ∨ n = 0" for m n :: nat
+      by (induct m) auto
+  
+  HOL.GCD[90157..90280]:
+    lemma lcm_0_iff_nat [simp]: "lcm m n = 0 ⟷ m = 0 ∨ n = 0"
+      for m n :: nat
+      by (fact lcm_eq_0_iff)
+}
+
+
+2 clones (score: 0.904): {
+  HOL.Hilbert_Choice[37014..39333]:
+    lemma Sup_Inf: "⨆ (Inf ` A) = ⨅ (Sup ` {f ` A |f. ∀B∈A. f B ∈ B})"
+    proof (rule order.antisym)
+      show "⨆ (Inf ` A) ≤ ⨅ (Sup ` {f ` A |f. ∀B∈A. f B ∈ B})"
+        using Inf_lower2 Sup_upper
+        by (fastforce simp add: intro: Sup_least INF_greatest)
+    next
+      show "⨅ (Sup ` {f ` A |f. ∀B∈A. f B ∈ B}) ≤ ⨆ (Inf ` A)"
+      proof (simp add:  Inf_Sup, rule SUP_least, simp, safe)
+        fix f
+        assume "∀Y. (∃f. Y = f ` A ∧ (∀Y∈A. f Y ∈ Y)) ⟶ f Y ∈ Y"
+        then have B: "⋀ F . (∀ Y ∈ A . F Y ∈ Y) ⟹ ∃ Z ∈ A . f (F ` A) = F Z"
+          by auto
+        show "⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ ⨆(Inf ` A)"
+        proof (cases "∃ Z ∈ A . ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ Inf Z")
+          case True
+          from this obtain Z where [simp]: "Z ∈ A" and A: "⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ Inf Z"
+            by blast
+          have B: "... ≤ ⨆(Inf ` A)"
+            by (simp add: SUP_upper)
+          from A and B show ?thesis
+            by simp
+        next
+          case False
+          then have X: "⋀ Z . Z ∈ A ⟹ ∃ x . x ∈ Z ∧ ¬ ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ x"
+            using Inf_greatest by blast
+          define F where "F = (λ Z . SOME x . x ∈ Z ∧ ¬ ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ x)"
+          have C: "⋀Y. Y ∈ A ⟹ F Y ∈ Y"
+            using X by (simp add: F_def, rule someI2_ex, auto)
+          have E: "⋀Y. Y ∈ A ⟹ ¬ ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ F Y"
+            using X by (simp add: F_def, rule someI2_ex, auto)
+          from C and B obtain  Z where D: "Z ∈ A " and Y: "f (F ` A) = F Z"
+            by blast
+          from E and D have W: "¬ ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ F Z"
+            by simp
+          have "⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ f (F ` A)"
+            using C by (blast intro: INF_lower)
+          with W Y show ?thesis
+            by simp
+        qed
+      qed
+    qed
+  
+  HOL.Enum[28310..30824]:
+    lemma finite_Inf_Sup: "⨅(Sup ` A) ≤ ⨆(Inf ` {f ` A |f. ∀Y∈A. f Y ∈ Y})"
+    proof (rule finite_induct [of A "λA. ⨅(Sup ` A) ≤ ⨆(Inf ` {f ` A |f. ∀Y∈A. f Y ∈ Y})"], simp_all add: finite_UnionD)
+      fix x::"'a set"
+      fix F
+      assume "x ∉ F"
+      have [simp]: "{⨆x ⊓ b |b . b ∈ Inf ` {f ` F |f. ∀Y∈F. f Y ∈ Y} } = {⨆x ⊓ (Inf (f ` F)) |f  . (∀Y∈F. f Y ∈ Y)}"
+        by auto
+      define fa where "fa = (λ (b::'a) f Y . (if Y = x then b else f Y))"
+      have "⋀f b. ∀Y∈F. f Y ∈ Y ⟹ b ∈ x ⟹ insert b (f ` (F ∩ {Y. Y ≠ x})) = insert (fa b f x) (fa b f ` F) ∧ fa b f x ∈ x ∧ (∀Y∈F. fa b f Y ∈ Y)"
+        by (auto simp add: fa_def)
+      from this have B: "⋀f b. ∀Y∈F. f Y ∈ Y ⟹ b ∈ x ⟹ fa b f ` ({x} ∪ F) ∈ {insert (f x) (f ` F) |f. f x ∈ x ∧ (∀Y∈F. f Y ∈ Y)}"
+        by blast
+      have [simp]: "⋀f b. ∀Y∈F. f Y ∈ Y ⟹ b ∈ x ⟹ b ⊓ (⨅x∈F. f x)  ≤ ⨆(Inf ` {insert (f x) (f ` F) |f. f x ∈ x ∧ (∀Y∈F. f Y ∈ Y)})"
+        using B apply (rule SUP_upper2)
+        using ‹x ∉ F› apply (simp_all add: fa_def Inf_union_distrib)
+        apply (simp add: image_mono Inf_superset_mono inf.coboundedI2)
+        done
+      assume "⨅(Sup ` F) ≤ ⨆(Inf ` {f ` F |f. ∀Y∈F. f Y ∈ Y})"
+    
+      from this have "⨆x ⊓ ⨅(Sup ` F) ≤ ⨆x ⊓ ⨆(Inf ` {f ` F |f. ∀Y∈F. f Y ∈ Y})"
+        using inf.coboundedI2 by auto
+      also have "... = Sup {⨆x ⊓ (Inf (f ` F)) |f  .  (∀Y∈F. f Y ∈ Y)}"
+        by (simp add: finite_inf_Sup)
+    
+      also have "... = Sup {Sup {Inf (f ` F) ⊓ b | b . b ∈ x} |f  .  (∀Y∈F. f Y ∈ Y)}"
+        by (subst inf_commute) (simp add: finite_inf_Sup)
+    
+      also have "... ≤ ⨆(Inf ` {insert (f x) (f ` F) |f. f x ∈ x ∧ (∀Y∈F. f Y ∈ Y)})"
+        apply (rule Sup_least, clarsimp)+
+        apply (subst inf_commute, simp)
+        done
+    
+      finally show "⨆x ⊓ ⨅(Sup ` F) ≤ ⨆(Inf ` {insert (f x) (f ` F) |f. f x ∈ x ∧ (∀Y∈F. f Y ∈ Y)})"
+        by simp
+    qed
+}
+
+
+2 clones (score: 0.905): {
+  HOL.Finite_Set[55947..56002]:
+    lemma empty [simp]: "F {} = z"
+      by (simp add: eq_fold)
+  
+  HOL.Lattices_Big[6552..6617]:
+    lemma empty [simp]:
+      "F {} = ❙1"
+      by (simp add: eq_fold)
+}
+
+
+2 clones (score: 0.906): {
+  HOL.Complete_Lattices[20458..20612]:
+    lemma Inf_Sup: "Inf (Sup ` A) = Sup (Inf ` {f ` A | f . (∀ Y ∈ A . f Y ∈ Y)})"
+      by (rule order.antisym, rule Inf_Sup_le, rule Sup_Inf_le)
+  
+  HOL.Enum[28310..30824]:
+    lemma finite_Inf_Sup: "⨅(Sup ` A) ≤ ⨆(Inf ` {f ` A |f. ∀Y∈A. f Y ∈ Y})"
+    proof (rule finite_induct [of A "λA. ⨅(Sup ` A) ≤ ⨆(Inf ` {f ` A |f. ∀Y∈A. f Y ∈ Y})"], simp_all add: finite_UnionD)
+      fix x::"'a set"
+      fix F
+      assume "x ∉ F"
+      have [simp]: "{⨆x ⊓ b |b . b ∈ Inf ` {f ` F |f. ∀Y∈F. f Y ∈ Y} } = {⨆x ⊓ (Inf (f ` F)) |f  . (∀Y∈F. f Y ∈ Y)}"
+        by auto
+      define fa where "fa = (λ (b::'a) f Y . (if Y = x then b else f Y))"
+      have "⋀f b. ∀Y∈F. f Y ∈ Y ⟹ b ∈ x ⟹ insert b (f ` (F ∩ {Y. Y ≠ x})) = insert (fa b f x) (fa b f ` F) ∧ fa b f x ∈ x ∧ (∀Y∈F. fa b f Y ∈ Y)"
+        by (auto simp add: fa_def)
+      from this have B: "⋀f b. ∀Y∈F. f Y ∈ Y ⟹ b ∈ x ⟹ fa b f ` ({x} ∪ F) ∈ {insert (f x) (f ` F) |f. f x ∈ x ∧ (∀Y∈F. f Y ∈ Y)}"
+        by blast
+      have [simp]: "⋀f b. ∀Y∈F. f Y ∈ Y ⟹ b ∈ x ⟹ b ⊓ (⨅x∈F. f x)  ≤ ⨆(Inf ` {insert (f x) (f ` F) |f. f x ∈ x ∧ (∀Y∈F. f Y ∈ Y)})"
+        using B apply (rule SUP_upper2)
+        using ‹x ∉ F› apply (simp_all add: fa_def Inf_union_distrib)
+        apply (simp add: image_mono Inf_superset_mono inf.coboundedI2)
+        done
+      assume "⨅(Sup ` F) ≤ ⨆(Inf ` {f ` F |f. ∀Y∈F. f Y ∈ Y})"
+    
+      from this have "⨆x ⊓ ⨅(Sup ` F) ≤ ⨆x ⊓ ⨆(Inf ` {f ` F |f. ∀Y∈F. f Y ∈ Y})"
+        using inf.coboundedI2 by auto
+      also have "... = Sup {⨆x ⊓ (Inf (f ` F)) |f  .  (∀Y∈F. f Y ∈ Y)}"
+        by (simp add: finite_inf_Sup)
+    
+      also have "... = Sup {Sup {Inf (f ` F) ⊓ b | b . b ∈ x} |f  .  (∀Y∈F. f Y ∈ Y)}"
+        by (subst inf_commute) (simp add: finite_inf_Sup)
+    
+      also have "... ≤ ⨆(Inf ` {insert (f x) (f ` F) |f. f x ∈ x ∧ (∀Y∈F. f Y ∈ Y)})"
+        apply (rule Sup_least, clarsimp)+
+        apply (subst inf_commute, simp)
+        done
+    
+      finally show "⨆x ⊓ ⨅(Sup ` F) ≤ ⨆(Inf ` {insert (f x) (f ` F) |f. f x ∈ x ∧ (∀Y∈F. f Y ∈ Y)})"
+        by simp
+    qed
+}
+
+
+2 clones (score: 0.906): {
+  HOL.Lifting[2902..3009]:
+    lemma Quotient_rel_abs: "R r s ⟹ Abs r = Abs s"
+      using a unfolding Quotient_def
+      by blast
+  
+  HOL.Quotient[2375..2486]:
+    lemma Quotient3_rel_abs:
+      "R r s ⟹ Abs r = Abs s"
+      using a unfolding Quotient3_def
+      by blast
+}
+
+
+2 clones (score: 0.907): {
+  HOL.Finite_Set[56004..56095]:
+    lemma infinite [simp]: "¬ finite A ⟹ F A = z"
+      by (simp add: eq_fold)
+  
+  HOL.Groups_Big[800..901]:
+    lemma infinite [simp]: "¬ finite A ⟹ F g A = ❙1"
+      by (simp add: eq_fold)
+}
+
+
+2 clones (score: 0.907): {
+  HOL.Enum[4376..4508]:
+    lemma tranclp_unfold [code]:
+      "tranclp r a b ⟷ (a, b) ∈ trancl {(x, y). r x y}"
+      by (simp add: trancl_def)
+  
+  HOL.Nitpick[1600..1728]:
+    lemma tranclp_unfold[nitpick_unfold]:
+      "tranclp r a b ≡ (a, b) ∈ trancl {(x, y). r x y}"
+      by (simp add: trancl_def)
+}
+
+
+2 clones (score: 0.908): {
+  HOL.Lifting[2299..2410]:
+    lemma Quotient_rep_abs: "R r r ⟹ R (Rep (Abs r)) r"
+      using a unfolding Quotient_def
+      by blast
+  
+  HOL.Quotient[2258..2373]:
+    lemma Quotient3_rep_abs:
+      "R r r ⟹ R (Rep (Abs r)) r"
+      using a unfolding Quotient3_def
+      by blast
+}
+
+
+2 clones (score: 0.910): {
+  HOL.Predicate_Compile[1322..1420]:
+    definition contains :: "'a set => 'a => bool"
+    where "contains A x ⟷ x ∈ A"
+  
+  HOL.Nunchaku[764..884]:
+    definition rmember :: "'a set ⇒ 'a ⇒ bool" where
+      "rmember A x ⟷ x ∈ A"
+}
+
+
+2 clones (score: 0.910): {
+  HOL.Lifting[2182..2297]:
+    lemma Quotient_rel_rep: "R (Rep a) (Rep b) ⟷ a = b"
+      using a unfolding Quotient_def
+      by metis
+  
+  HOL.Quotient[2135..2256]:
+    lemma Quotient3_rel_rep:
+      "R (Rep a) (Rep b) ⟷ a = b"
+      using a
+      unfolding Quotient3_def
+      by metis
+}
+
+
+2 clones (score: 0.911): {
+  HOL.Groups[26837..27157]:
+    lemma le_imp_neg_le:
+      assumes "a ≤ b"
+      shows "- b ≤ - a"
+    proof -
+      from assms have "- a + a ≤ - a + b"
+        by (rule add_left_mono)
+      then have "0 ≤ - a + b"
+        by simp
+      then have "0 + (- b) ≤ (- a + b) + (- b)"
+        by (rule add_right_mono)
+      then show ?thesis
+        by (simp add: algebra_simps)
+    qed
+  
+  HOL.Boolean_Algebras[14806..15155]:
+    lemma compl_mono:
+      assumes "x ≤ y"
+      shows "- y ≤ - x"
+    proof -
+      from assms have "x ⊔ y = y" by (simp only: le_iff_sup)
+      then have "- (x ⊔ y) = - y" by simp
+      then have "- x ⊓ - y = - y" by simp
+      then have "- y ⊓ - x = - y" by (simp only: inf_commute)
+      then show ?thesis by (simp only: le_iff_inf)
+    qed
+}
+
+
+2 clones (score: 0.912): {
+  HOL.Lattices[600..693]:
+    lemma right_idem [simp]: "(a ❙* b) ❙* b = a ❙* b"
+      by (simp add: assoc)
+  
+  HOL.GCD[2225..2348]:
+    lemma right_idem [simp]:
+      "(a ❙* b) ❙* b = a ❙* b"
+      using left_idem [of b a] by (simp add: ac_simps)
+}
+
+
+2 clones (score: 0.912): {
+  HOL.Lattices[494..598]:
+    lemma left_idem [simp]: "a ❙* (a ❙* b) = a ❙* b"
+      by (simp add: assoc [symmetric])
+  
+  HOL.GCD[2108..2223]:
+    lemma left_idem [simp]:
+      "a ❙* (a ❙* b) = a ❙* b"
+      using assoc [of a a b, symmetric] by simp
+}
+
+
+2 clones (score: 0.913): {
+  HOL.Lattices_Big[6552..6617]:
+    lemma empty [simp]:
+      "F {} = ❙1"
+      by (simp add: eq_fold)
+  
+  HOL.GCD[3418..3488]:
+    lemma empty [simp]:
+      "F {} = ❙⊤"
+      by (simp add: eq_fold)
+}
+
+
+2 clones (score: 0.913): {
+  HOL.BNF_Def[1277..1397]:
+    lemma rel_funD:
+      assumes "rel_fun A B f g" and "A x y"
+      shows "B (f x) (g y)"
+      using assms by (simp add: rel_fun_def)
+  
+  HOL.Transfer[481..594]:
+    lemma rel_funD2:
+      assumes "rel_fun A B f g" and "A x x"
+      shows "B (f x) (g x)"
+      using assms by (rule rel_funD)
+}
+
+
+2 clones (score: 0.914): {
+  HOL.Groups[27695..27796]:
+    lemma neg_less_iff_less [simp]: "- b < - a ⟷ a < b"
+      by (auto simp add: less_le)
+  
+  HOL.Boolean_Algebras[15631..15735]:
+    lemma compl_less_compl_iff [simp]: "- x < - y ⟷ y < x"
+      by (auto simp add: less_le)
+}
+
+
+2 clones (score: 0.914): {
+  HOL.Groups[27159..27451]:
+    lemma neg_le_iff_le [simp]: "- b ≤ - a ⟷ a ≤ b"
+    proof
+      assume "- b ≤ - a"
+      then have "- (- a) ≤ - (- b)"
+        by (rule le_imp_neg_le)
+      then show "a ≤ b"
+        by simp
+    next
+      assume "a ≤ b"
+      then show "- b ≤ - a"
+        by (rule le_imp_neg_le)
+    qed
+  
+  HOL.Boolean_Algebras[15157..15266]:
+    lemma compl_le_compl_iff [simp]: "- x ≤ - y ⟷ y ≤ x"
+      by (auto dest: compl_mono)
+}
+
+
+2 clones (score: 0.915): {
+  HOL.Set[70229..70646]:
+    lemma the_elem_image_unique:
+      assumes "A ≠ {}"
+        and *: "⋀y. y ∈ A ⟹ f y = a"
+      shows "the_elem (f ` A) = a"
+      unfolding the_elem_def
+    proof (rule the1_equality)
+      from ‹A ≠ {}› obtain y where "y ∈ A" by auto
+      with * ‹y ∈ A› have "a ∈ f ` A" by blast
+      with * show "f ` A = {a}" by auto
+      then show "∃!x. f ` A = {x}" by auto
+    qed
+  
+  HOL.Hilbert_Choice[6367..6796]:
+    lemma some_elem_image_unique:
+      assumes "A ≠ {}"
+        and *: "⋀y. y ∈ A ⟹ f y = a"
+      shows "some_elem (f ` A) = a"
+      unfolding some_elem_def
+    proof (rule some1_equality)
+      from ‹A ≠ {}› obtain y where "y ∈ A" by auto
+      with * ‹y ∈ A› have "a ∈ f ` A" by blast
+      then show "a ∈ f ` A" by auto
+      with * show "∃!x. x ∈ f ` A"
+        by auto
+    qed
+}
+
+
+2 clones (score: 0.920): {
+  HOL.Finite_Set[56004..56095]:
+    lemma infinite [simp]: "¬ finite A ⟹ F A = z"
+      by (simp add: eq_fold)
+  
+  HOL.Lattices_Big[6449..6550]:
+    lemma infinite [simp]:
+      "¬ finite A ⟹ F A = ❙1"
+      by (simp add: eq_fold)
+}
+
+
+2 clones (score: 0.928): {
+  HOL.Complete_Lattices[16517..16631]:
+    lemma INF_const [simp]: "A ≠ {} ⟹ (⨅i∈A. f) = f"
+      by (simp add: INF_constant)
+  
+  HOL.Conditionally_Complete_Lattices[15882..16033]:
+    lemma cINF_const [simp]: "A ≠ {} ⟹ (⨅x∈A. c) = c"
+      by (intro order.antisym cINF_greatest) (auto intro: cINF_lower)
+}
+
+
+2 clones (score: 0.928): {
+  HOL.Complete_Lattices[16633..16747]:
+    lemma SUP_const [simp]: "A ≠ {} ⟹ (⨆i∈A. f) = f"
+      by (simp add: SUP_constant)
+  
+  HOL.Conditionally_Complete_Lattices[15732..15880]:
+    lemma cSUP_const [simp]: "A ≠ {} ⟹ (⨆x∈A. c) = c"
+      by (intro order.antisym cSUP_least) (auto intro: cSUP_upper)
+}
+
+
+2 clones (score: 0.929): {
+  HOL.Product_Type[42999..43055]:
+    lemma vimage_fst: "fst -` A = A × UNIV"
+      by auto
+  
+  HOL.Topological_Spaces[162027..162092]:
+    lemma fst_vimage_eq_Times: "fst -` S = S × UNIV"
+      by auto
+}
+
+
+2 clones (score: 0.929): {
+  HOL.Product_Type[43057..43113]:
+    lemma vimage_snd: "snd -` A = UNIV × A"
+      by auto
+  
+  HOL.Topological_Spaces[162094..162159]:
+    lemma snd_vimage_eq_Times: "snd -` S = UNIV × S"
+      by auto
+}
+
+
+2 clones (score: 0.931): {
+  HOL.Lifting[1671..1871]:
+    lemma Quotient_rel:
+      "R r r ∧ R s s ∧ Abs r = Abs s ⟷ R r s" ― ‹orientation does not loop on rewriting›
+      using a unfolding Quotient_def
+      by blast
+  
+  HOL.Quotient[1725..1929]:
+    lemma Quotient3_rel:
+      "R r r ∧ R s s ∧ Abs r = Abs s ⟷ R r s" ― ‹orientation does not loop on rewriting›
+      using a
+      unfolding Quotient3_def
+      by blast
+}
+
+
+2 clones (score: 0.936): {
+  HOL.Complete_Lattices[20458..20612]:
+    lemma Inf_Sup: "Inf (Sup ` A) = Sup (Inf ` {f ` A | f . (∀ Y ∈ A . f Y ∈ Y)})"
+      by (rule order.antisym, rule Inf_Sup_le, rule Sup_Inf_le)
+  
+  HOL.Hilbert_Choice[37014..39333]:
+    lemma Sup_Inf: "⨆ (Inf ` A) = ⨅ (Sup ` {f ` A |f. ∀B∈A. f B ∈ B})"
+    proof (rule order.antisym)
+      show "⨆ (Inf ` A) ≤ ⨅ (Sup ` {f ` A |f. ∀B∈A. f B ∈ B})"
+        using Inf_lower2 Sup_upper
+        by (fastforce simp add: intro: Sup_least INF_greatest)
+    next
+      show "⨅ (Sup ` {f ` A |f. ∀B∈A. f B ∈ B}) ≤ ⨆ (Inf ` A)"
+      proof (simp add:  Inf_Sup, rule SUP_least, simp, safe)
+        fix f
+        assume "∀Y. (∃f. Y = f ` A ∧ (∀Y∈A. f Y ∈ Y)) ⟶ f Y ∈ Y"
+        then have B: "⋀ F . (∀ Y ∈ A . F Y ∈ Y) ⟹ ∃ Z ∈ A . f (F ` A) = F Z"
+          by auto
+        show "⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ ⨆(Inf ` A)"
+        proof (cases "∃ Z ∈ A . ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ Inf Z")
+          case True
+          from this obtain Z where [simp]: "Z ∈ A" and A: "⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ Inf Z"
+            by blast
+          have B: "... ≤ ⨆(Inf ` A)"
+            by (simp add: SUP_upper)
+          from A and B show ?thesis
+            by simp
+        next
+          case False
+          then have X: "⋀ Z . Z ∈ A ⟹ ∃ x . x ∈ Z ∧ ¬ ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ x"
+            using Inf_greatest by blast
+          define F where "F = (λ Z . SOME x . x ∈ Z ∧ ¬ ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ x)"
+          have C: "⋀Y. Y ∈ A ⟹ F Y ∈ Y"
+            using X by (simp add: F_def, rule someI2_ex, auto)
+          have E: "⋀Y. Y ∈ A ⟹ ¬ ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ F Y"
+            using X by (simp add: F_def, rule someI2_ex, auto)
+          from C and B obtain  Z where D: "Z ∈ A " and Y: "f (F ` A) = F Z"
+            by blast
+          from E and D have W: "¬ ⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ F Z"
+            by simp
+          have "⨅(f ` {f ` A |f. ∀Y∈A. f Y ∈ Y}) ≤ f (F ` A)"
+            using C by (blast intro: INF_lower)
+          with W Y show ?thesis
+            by simp
+        qed
+      qed
+    qed
+}
+
+
+2 clones (score: 0.939): {
+  HOL.HOL[50313..50525]:
+    lemma True_implies_equals: "(True ⟹ PROP P) ≡ PROP P"
+    proof
+      assume "True ⟹ PROP P"
+      from this [OF TrueI] show "PROP P" .
+    next
+      assume "PROP P"
+      then show "PROP P" .
+    qed
+  
+  HOL.Record[17869..17955]:
+    lemma iso_tuple_True_simp: "(True ⟹ PROP P) ≡ PROP P"
+      by simp
+}
+
+
+2 clones (score: 0.940): {
+  HOL.Hilbert_Choice[3351..3452]:
+    lemma some_eq_ex: "P (SOME x. P x) ⟷ (∃x. P x)"
+      by (blast intro: someI)
+  
+  HOL.SMT[6841..6990]:
+    lemma verit_sko_ex: ‹(∃x. P x) ⟷ P (SOME x. P x)›
+      using someI[of ‹λx. P x›]
+      by auto
+}
+
+
+2 clones (score: 0.947): {
+  HOL.Complete_Lattices[20101..20284]:
+    lemma Sup_Inf_le: "Sup (Inf ` {f ` A | f . (∀ Y ∈ A . f Y ∈ Y)}) ≤ Inf (Sup ` A)"
+      by (rule SUP_least, clarify, rule INF_greatest, simp add: INF_lower2 Sup_upper)
+  
+  HOL.Enum[28310..30824]:
+    lemma finite_Inf_Sup: "⨅(Sup ` A) ≤ ⨆(Inf ` {f ` A |f. ∀Y∈A. f Y ∈ Y})"
+    proof (rule finite_induct [of A "λA. ⨅(Sup ` A) ≤ ⨆(Inf ` {f ` A |f. ∀Y∈A. f Y ∈ Y})"], simp_all add: finite_UnionD)
+      fix x::"'a set"
+      fix F
+      assume "x ∉ F"
+      have [simp]: "{⨆x ⊓ b |b . b ∈ Inf ` {f ` F |f. ∀Y∈F. f Y ∈ Y} } = {⨆x ⊓ (Inf (f ` F)) |f  . (∀Y∈F. f Y ∈ Y)}"
+        by auto
+      define fa where "fa = (λ (b::'a) f Y . (if Y = x then b else f Y))"
+      have "⋀f b. ∀Y∈F. f Y ∈ Y ⟹ b ∈ x ⟹ insert b (f ` (F ∩ {Y. Y ≠ x})) = insert (fa b f x) (fa b f ` F) ∧ fa b f x ∈ x ∧ (∀Y∈F. fa b f Y ∈ Y)"
+        by (auto simp add: fa_def)
+      from this have B: "⋀f b. ∀Y∈F. f Y ∈ Y ⟹ b ∈ x ⟹ fa b f ` ({x} ∪ F) ∈ {insert (f x) (f ` F) |f. f x ∈ x ∧ (∀Y∈F. f Y ∈ Y)}"
+        by blast
+      have [simp]: "⋀f b. ∀Y∈F. f Y ∈ Y ⟹ b ∈ x ⟹ b ⊓ (⨅x∈F. f x)  ≤ ⨆(Inf ` {insert (f x) (f ` F) |f. f x ∈ x ∧ (∀Y∈F. f Y ∈ Y)})"
+        using B apply (rule SUP_upper2)
+        using ‹x ∉ F› apply (simp_all add: fa_def Inf_union_distrib)
+        apply (simp add: image_mono Inf_superset_mono inf.coboundedI2)
+        done
+      assume "⨅(Sup ` F) ≤ ⨆(Inf ` {f ` F |f. ∀Y∈F. f Y ∈ Y})"
+    
+      from this have "⨆x ⊓ ⨅(Sup ` F) ≤ ⨆x ⊓ ⨆(Inf ` {f ` F |f. ∀Y∈F. f Y ∈ Y})"
+        using inf.coboundedI2 by auto
+      also have "... = Sup {⨆x ⊓ (Inf (f ` F)) |f  .  (∀Y∈F. f Y ∈ Y)}"
+        by (simp add: finite_inf_Sup)
+    
+      also have "... = Sup {Sup {Inf (f ` F) ⊓ b | b . b ∈ x} |f  .  (∀Y∈F. f Y ∈ Y)}"
+        by (subst inf_commute) (simp add: finite_inf_Sup)
+    
+      also have "... ≤ ⨆(Inf ` {insert (f x) (f ` F) |f. f x ∈ x ∧ (∀Y∈F. f Y ∈ Y)})"
+        apply (rule Sup_least, clarsimp)+
+        apply (subst inf_commute, simp)
+        done
+    
+      finally show "⨆x ⊓ ⨅(Sup ` F) ≤ ⨆(Inf ` {insert (f x) (f ` F) |f. f x ∈ x ∧ (∀Y∈F. f Y ∈ Y)})"
+        by simp
+    qed
+}
+
+
+2 clones (score: 0.952): {
+  HOL.Groups[31454..31579]:
+    lemma add1: "(A::'a::comm_monoid_add) ≡ k + a ⟹ A + b ≡ k + (a + b)"
+      by (simp only: ac_simps)
+  
+  HOL.Nat[59532..59657]:
+    lemma add2: "(B::'a::comm_monoid_add) ≡ k + b ⟹ a + B ≡ k + (a + b)"
+      by (simp only: ac_simps)
+}
+
+
+2 clones (score: 0.952): {
+  HOL.Groups[31581..31706]:
+    lemma add2: "(B::'a::comm_monoid_add) ≡ k + b ⟹ a + B ≡ k + (a + b)"
+      by (simp only: ac_simps)
+  
+  HOL.Nat[59405..59530]:
+    lemma add1: "(A::'a::comm_monoid_add) ≡ k + a ⟹ A + b ≡ k + (a + b)"
+      by (simp only: ac_simps)
+}
+
+
+2 clones (score: 0.979): {
+  HOL.Groups[32121..32205]:
+    lemma rule0: "(a::'a::comm_monoid_add) ≡ a + 0"
+      by (simp only: add_0_right)
+  
+  HOL.Nat[59760..59844]:
+    lemma rule0: "(a::'a::comm_monoid_add) ≡ a + 0"
+      by (simp only: add_0_right)
+}
+
+
+2 clones (score: 0.983): {
+  HOL.Product_Type[39922..40025]:
+    lemma Collect_case_prodD: "x ∈ Collect (case_prod A) ⟹ A (fst x) (snd x)"
+      by auto
+  
+  HOL.BNF_Def[393..496]:
+    lemma Collect_case_prodD: "x ∈ Collect (case_prod A) ⟹ A (fst x) (snd x)"
+      by auto
+}
+
+
+2 clones (score: 0.984): {
+  HOL.BNF_Def[8584..8684]:
+    lemma subst_Pair: "P x y ⟹ a = (x, y) ⟹ P (fst a) (snd a)"
+      by simp
+  
+  HOL.BNF_Greatest_Fixpoint[5009..5109]:
+    lemma subst_Pair: "P x y ⟹ a = (x, y) ⟹ P (fst a) (snd a)"
+      by simp
+}
+
+
+2 clones (score: 0.986): {
+  HOL.Groups[31454..31579]:
+    lemma add1: "(A::'a::comm_monoid_add) ≡ k + a ⟹ A + b ≡ k + (a + b)"
+      by (simp only: ac_simps)
+  
+  HOL.Nat[59405..59530]:
+    lemma add1: "(A::'a::comm_monoid_add) ≡ k + a ⟹ A + b ≡ k + (a + b)"
+      by (simp only: ac_simps)
+}
+
+
+2 clones (score: 0.986): {
+  HOL.Groups[31581..31706]:
+    lemma add2: "(B::'a::comm_monoid_add) ≡ k + b ⟹ a + B ≡ k + (a + b)"
+      by (simp only: ac_simps)
+  
+  HOL.Nat[59532..59657]:
+    lemma add2: "(B::'a::comm_monoid_add) ≡ k + b ⟹ a + B ≡ k + (a + b)"
+      by (simp only: ac_simps)
+}

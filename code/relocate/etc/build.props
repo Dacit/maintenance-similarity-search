@@ -1,0 +1,9 @@
+title = Relocate
+module = $RELOCATE_HOME/lib/relocate.jar
+requirements = \
+  env:ISABELLE_SCALA_JAR \
+  env:JEDIT_JARS
+sources = \
+  src/relocate.scala
+services = \
+  isabelle.Relocate_Functions

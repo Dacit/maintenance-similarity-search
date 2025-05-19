@@ -1,0 +1,29 @@
+- Isabelle/52290d6a, AFP/09e1cdac, import Parallel_Shear_Sort.Parallel_Shear_Sort
+  - sorted_map_mono moved to List.sorted_wrt_map_mono
+- Isabelle/cddce3a4, AFP/a12a52b7, Polynomial_Interpolation.Missing_Polynomial
+  - range_coeff moved to Polynomial.nth_default_coeffs_eq
+  - smult_sum moved to Polynomial.smult_one
+  - smult_power moved to Polynomial.smult_one
+  - degree_prod_list_le moved to Polynomial.monom_altdef
+  - degree_sum_list_le moved to Polynomial.monom_altdef
+  - coeff_monom_Suc moved to Polynomial.coeff_monom_mult
+  - coeff_sum_monom moved to Polynomial.monom_1_dvd_iff
+  - poly_ext moved to Polynomial.poly_eq_poly_eq_iff
+  - coeff_linear_power_neg moved to Polynomial.poly_eq_poly_eq_iff
+- Isabelle/6f0cd46b, AFP/b9a23909, import Parallel_Shear_Sort.Parallel_Shear_Sort
+  - count_conv_size_mset moved to Multiset.set_mset_subset_singletonD
+  - size_conv_count_bool_mset moved to Multiset.set_mset_subset_singletonD
+  - filter_image_mset moved to Multiset.image_mset_If
+  - mset_replicate moved to Multiset.mset_zero_iff_right
+  - mset_concat moved to Multiset.sum_eq_empty_iff
+  - sum_mset_singleton_mset moved to Multiset.sum_eq_empty_iff
+  - sum_list_singleton_mset moved to Multiset.sum_eq_empty_iff
+  - sort_append moved to Multiset.sort_by_quicksort
+  - nth_append_left moved to List.nth_append
+  - nth_append_right moved to List.nth_append
+  - sorted_wrt_induct moved to List.nth_sorted_list_of_set_greaterThanAtMost
+  - sorted_wrt_trans_induct moved to List.nth_sorted_list_of_set_greaterThanAtMost
+  - Times_insert_right moved to Product_Type.image_paired_Times
+  - Times_insert_left moved to Product_Type.image_paired_Times
+- Isabelle/6ab64318, AFP/4027d497, import Simple_Clause_Learning.Termination
+  - wfp_on_antimono_stronger moved to Wellfounded.wf_on_antimono_strong

@@ -1,0 +1,8 @@
+title = Isabelle Clone_Detection
+module = $CLONE_DETECTION_JAR
+requirements = \
+  env:ISABELLE_SCALA_JAR
+sources = \
+  src/clone_detect.scala \
+  src/HungarianAlgorithm.java
+services = isabelle.Clone_Detect_Tool

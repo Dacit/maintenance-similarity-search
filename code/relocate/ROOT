@@ -1,0 +1,6 @@
+session Relocate in src = Pure +
+  theories Relocate
+
+session Relocate_Example = Main +
+  sessions Relocate
+  theories Example
