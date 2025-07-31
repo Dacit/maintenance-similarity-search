@@ -2,7 +2,7 @@
 This is the supplemental material to the paper
   "Supporting Maintenance of Formal Mathematics with Similarity Search".
 
-Newer versions might be available on [github](https://github.com/Dacit/maintenance-similarity-search)
+Newer versions might be available on [github](https://github.com/Dacit/maintenance-similarity-search).
 
 ## Usage
 All data for the paper is located in [data](./data) subdirectory.
