@@ -74,13 +74,13 @@ fun relocate thy ctxt {max, verbose} suggestion thms =
         fun find n = Symtab.fold (uncurry (find_pos {limit=n, precise=true}) o snd) thy_pos_tab
 
         val init =
-          (Locator.top_ranking 1)
+          (Locator.top_ranking max)
           |> fold ((fn (pos_tab, pos) =>
               find_pos {limit=10, precise=false} pos_tab [pos]) o the) init_pos
-          |> Locator.dest
+          |> Locator.dest |> rev
 
-        val ranking = Locator.from_ranking (Library.the_single
-          (case init of [] => find 3 (Locator.top_ranking 1) |> Locator.dest | x::xs => 
+        val ranking = Locator.from_ranking (hd
+          (case init of [] => find 3 (Locator.top_ranking max) |> Locator.dest |> rev | x::xs => 
              (if verbose then writeln ("Suggestion result: " ^ string_of_real (#fit x)) else ();
               x::xs)))
 
@@ -105,7 +105,7 @@ fun relocate thy ctxt {max, verbose} suggestion thms =
               ([Pretty.str " with: ", pretty_ranked_nodes false locs]))
            in () end
 
-        val _ = suggested |> (if max = 0 then I else take max) |> map print_suggested
+        val _ = suggested |> (if max = 0 then I else take max) |> app print_suggested
         fun result {location={pos, node}, fit, ...} = (#name (#2 node), pos, fit)
       in
         {setup = setup_timing,

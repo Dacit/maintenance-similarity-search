@@ -21,6 +21,9 @@ All commands are relative to the root directory of this repository.
 ### Clone detection
 - Installation: `isabelle components -u code/clone-detect`
 - Usage hints: `isabelle clone_detect -?`
+- Example: `isabelle clone_detect FOL-ex`
+- Note that pre-existing heap images, built without `export_theory` option,
+  will prevent the clone detection analyzing formulae; they need to be removed first.
 - Detection for HOL from paper: `isabelle clone_detect -t 0.872 HOL`,
   note that code was modified to not return clone classes.
   Proofs of equality / locale instantiations can be found in [data/Clones_HOL.thy](./data/Clones_HOL.thy)
@@ -36,8 +39,8 @@ All commands are relative to the root directory of this repository.
 
 ### Relocate
 - Installation: `isabelle components -u code/relocate`
-- Usage in example theory: Add `Relocate.Relocate` to imports,
-  then the command `relocate <thm>` is available.
-  See the [Example theory](./code/relocate/Example.thy).
+- Usage in any theory: Add `Relocate.Relocate` to imports,
+  then the command `relocate <thm> [ranking <thm>] [suggest <n>]` is available.
+  See the [Example theory](./code/relocate/Example.thy) for usage examples.
 - Moves extracted from history can be found in [data/move_history.md](./data/relocate_history.md)
 - Ranking of the evaluation can be found in [data/relocate_eval.json](./data/relocate_eval.json)

@@ -24,7 +24,7 @@ theme_pubr <- function(legend = c("top", "bottom", "left", "right", "none")) {
   panel.border <- element_blank()
   axis.line <- element_line(colour = "black", size = 0.5)
   plot.margin <- margin(0, half_line, half_line, half_line)
-  .theme <- theme_bw(base_size = base_size, base_family = base_family) %+replace% theme(panel.border = panel.border, panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line = axis.line, axis.text = element_text(color = "black"), legend.key = element_blank(), strip.background = element_rect(colour = "black"), plot.margin = plot.margin, legend.position = legend, complete = TRUE)
+  .theme <- theme_bw(base_size = base_size) %+replace% theme(panel.border = panel.border, panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line = axis.line, axis.text = element_text(color = "black"), legend.key = element_blank(), strip.background = element_rect(colour = "black"), plot.margin = plot.margin, legend.position = legend, complete = TRUE)
   .theme <- .theme + theme(axis.title.x = element_text(margin = margin(t = half_line)), axis.title.y = element_text(margin = margin(r = half_line)))
   .theme
 }

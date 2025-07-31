@@ -79,7 +79,7 @@ end
 
 fun top_ranking n =
   {min_score=fn xs => if length xs < n orelse null xs then Real.negInf else #fit (hd xs), 
-   norm=fn xs => drop (length xs - n) xs, xs=[]}
+   norm=fn xs => drop (Integer.max 0 (length xs - n)) xs, xs=[]}
 
 fun from_ranking result =
   {min_score=K (#fit result), norm=fn xs => if #fit (hd xs) < #fit result then tl xs else xs, xs=[]}
